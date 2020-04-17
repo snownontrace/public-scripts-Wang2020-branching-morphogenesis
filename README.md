@@ -1,6 +1,8 @@
-This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in Wang et al., 2020 (PubMed ID xxxxxx: to update after publication). Please kindly cite our paper if you used them in your work.
+# Instructions of Code Usage
+This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in Wang et al., 2020 (PubMed ID xxxxxx: will update after publication). Please kindly cite our paper if you used them in your work.
 
 ---
+## Reproducing plots in Wang et al., 2020
 
 Refer to the table below for a guide of which scripts were used to generate the plot(s) of interest.
 
@@ -24,3 +26,7 @@ Refer to the table below for a guide of which scripts were used to generate the 
 | Extended Data Fig. 9c | Western-blot-and-immunofluorescence-quantification.ipynb |
 | Extended Data Fig. 10b, d | Western-blot-and-immunofluorescence-quantification.ipynb |
 | Extended Data Fig. 10g-h | Cell-attachment-assay-analysis.ipynb |
+
+## Making and annotating movies
+
+To update
