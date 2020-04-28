@@ -12,9 +12,7 @@ Refer to the table below for a guide of which scripts were used to generate the 
 | Fig. 1h-k | Dynamic-line-scan-modularized.ipynb |
 | Fig. 2a-b | TrackMate_tracking_cell_division_data_plotting.ipynb |
 | Fig. 2d | E-cad-line-scan-plotting.ipynb |
-| Fig. 3d-f | Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
-| Fig. 4b-d, f | Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
-| Fig. 4b-d, f | Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
+| Fig. 3d-f <br> Fig. 4b-d, f | Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
 | Extended Data Fig. 1d-h | Imaris_tracking_surface_data_plotting.ipynb |
 | Extended Data Fig. 2 | Dynamic-line-scan-modularized.ipynb |
 | Extended Data Fig. 3c-g | TrackMate_tracking_cell_division_data_plotting.ipynb |
@@ -29,4 +27,4 @@ Refer to the table below for a guide of which scripts were used to generate the 
 
 ## Making and annotating movies
 
-To update
+To update.
