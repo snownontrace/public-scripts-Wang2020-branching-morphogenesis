@@ -1,6 +1,6 @@
 import os, glob, argparse
 
-def make_movie(tempPath, fps, target_size, quality, n_digit_ImgID):
+def make_movie(tempPath, fps, target_size, n_digit_ImgID, quality):
     '''Make a '.mp4' movie from an image sequence using ffmpeg
 
     Parameters
@@ -54,9 +54,10 @@ if __name__ == "__main__":
                         type=int, default=12)
     parser.add_argument("target_size", help="the desired file size in MB",
                         type=int, default=30)
-    parser.add_argument("quality", nargs='?', help="quality of compression, 0 highest, 63 lowest",
-                        type=int, default=0)
-    parser.add_argument("n_digit_ImgID", nargs='?', help="the digit number of image IDs of the image sequence",
+    parser.add_argument("n_digit_ImgID", nargs='?', help="optional; the digit number of image IDs of the image sequence; default 4",
                         type=int, default=4)
+    parser.add_argument("quality", nargs='?', help="optional; quality, 0 highest, 63 lowest; default 0",
+                        type=int, default=0)
+
     args = parser.parse_args()
-    make_movie(args.folder, args.fps, args.target_size, args.quality, args.n_digit_ImgID)
+    make_movie(args.folder, args.fps, args.target_size, args.n_digit_ImgID, args.quality)

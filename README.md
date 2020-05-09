@@ -38,14 +38,15 @@ Refer to the table below for a guide of which scripts were used to generate the 
 - Annotated image stacks were exported to tif image sequences and made into H.264 encoded mp4 videos using "make-movie.py", which is a Python wrapper of [ffmpeg](https://www.ffmpeg.org/).
 
   ```
-  usage: make-movie.py [-h] folder fps target_size [quality] [n_digit_ImgID]
+  usage: make-movie.py [-h] folder fps target_size [n_digit_ImgID] [quality]
 
   positional arguments:
     folder         folder containing the image sequence for movie making
     fps            playback speed in frames per second
     target_size    the desired file size in MB
-    quality        quality of compression, 0 highest, 63 lowest
-    n_digit_ImgID  the digit number of image IDs of the image sequence
+    n_digit_ImgID  optional; the digit number of image IDs of the image
+                   sequence; default 4
+    quality        optional; quality, 0 highest, 63 lowest; default 0
 
   optional arguments:
     -h, --help     show this help message and exit
