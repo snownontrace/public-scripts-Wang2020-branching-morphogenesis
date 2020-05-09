@@ -35,6 +35,9 @@ Refer to the table below for a guide of which scripts were used to generate the 
 
 - Image stacks were annotated using "movie-annotation-add-time-stamp.ijm", "movie-annotation-add-scale-bar.ijm" and "movie-annotation-add-arrows-time-lapse-frames.ijm" before or after being combined or concatenated into a single image stack for a single video.
 
+  - Note, make sure the image width and height pixel sizes are even numbers, otherwise ffmpeg may complain.
+
+
 - Annotated image stacks were exported to tif image sequences and made into H.264 encoded mp4 videos using "make-movie.py", which is a Python wrapper of [ffmpeg](https://www.ffmpeg.org/).
 
   ```
@@ -50,4 +53,9 @@ Refer to the table below for a guide of which scripts were used to generate the 
 
   optional arguments:
     -h, --help     show this help message and exit
+  ```
+
+  For example, the following command makes the image sequence stored in '\~/branching-paper/movie1' into a '.mp4' movie at 12 fps and with a file size under 15 MB. The movie is saved in the parental folder of the image sequence folder ('\~/branching-paper/'):
+  ```bash
+  make-movie.py ~/branching-paper/movie1 12 15
   ```

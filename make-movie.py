@@ -1,6 +1,6 @@
 import os, glob, argparse
 
-def make_movie(tempPath, fps, target_size, n_digit_ImgID, quality):
+def make_movie(tempPath, fps, target_size, n_digit_ImgID=4, quality=0):
     '''Make a '.mp4' movie from an image sequence using ffmpeg
 
     Parameters
@@ -15,7 +15,7 @@ def make_movie(tempPath, fps, target_size, n_digit_ImgID, quality):
         Boolean value of whether the movie file exists or not
     '''
     # Use the file list length (total frames) to calculate movie duration in seconds
-    tempPattern = '*-'
+    tempPattern = '*'
     for i in range(n_digit_ImgID):
         tempPattern = tempPattern + '[0-9]'
     tempPattern = tempPattern + '.tif'
@@ -25,9 +25,9 @@ def make_movie(tempPath, fps, target_size, n_digit_ImgID, quality):
 
     # Infer datasetPrefix from the first file name of the tif file list
     filename_tif0 = os.path.basename(tif_list[0])
-    n_trailing_chars = -1*(n_digit_ImgID+5)
+    n_trailing_chars = -1*(n_digit_ImgID+4)
     datasetPrefix = filename_tif0[:n_trailing_chars]
-    print(datasetPrefix)
+    # print(datasetPrefix)
 
     # Use bit rates to precisely control the output file size to be x MB (Mega Bytes)
     # For example, if you want a 30 MB output file for a >9.3 second movie:
@@ -36,10 +36,10 @@ def make_movie(tempPath, fps, target_size, n_digit_ImgID, quality):
     bit_rate = str( int(target_size * 8192 / duration) ) + 'k'
 
     # create output file name in a sytematic way
-    outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '-fps-' + str(target_size) + 'MB.mp4'
+    outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
 
-    # # For making mp4 movies
-    tifPattern = os.path.join(tempPath, datasetPrefix+'-%0'+str(n_digit_ImgID)+'d.tif')
+    # Call 'ffmpeg' to make mp4 movies
+    tifPattern = os.path.join(tempPath, datasetPrefix+'%0'+str(n_digit_ImgID)+'d.tif')
     os.system('ffmpeg -r '+str(fps)+' -i '+tifPattern+' -b:v '+bit_rate+' -pass 1 \
                 -c:v libx264 -pix_fmt yuv420p -q:v '+str(quality)+' -f mp4 -y /dev/null && \
                 ffmpeg -r '+str(fps)+' -i '+tifPattern+' -b:v '+bit_rate+' -pass 2 \
