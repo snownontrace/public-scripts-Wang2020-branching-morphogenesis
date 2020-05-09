@@ -56,6 +56,6 @@ Refer to the table below for a guide of which scripts were used to generate the 
   ```
 
   For example, the following command makes the image sequence stored in '\~/branching-paper/movie1' into a '.mp4' movie at 12 fps and with a file size under 15 MB. The movie is saved in the parental folder of the image sequence folder ('\~/branching-paper/'):
-  ```bash
+  ```shell
   make-movie.py ~/branching-paper/movie1 12 15
   ```
