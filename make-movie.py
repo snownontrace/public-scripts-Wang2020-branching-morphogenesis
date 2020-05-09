@@ -1,6 +1,6 @@
-import os, glob
+import os, glob, argparse
 
-def make_movie(tempPath, fps=24, target_size=30, quality=0):
+def make_movie(tempPath, fps, target_size, quality, n_digit_ImgID):
     '''Make a '.mp4' movie from an image sequence using ffmpeg
 
     Parameters
@@ -15,9 +15,19 @@ def make_movie(tempPath, fps=24, target_size=30, quality=0):
         Boolean value of whether the movie file exists or not
     '''
     # Use the file list length (total frames) to calculate movie duration in seconds
-    datasetPrefix = os.path.basename(tempPath[:-1])
-    tif_list = glob.glob(tempPath + datasetPrefix + '-[0-9][0-9][0-9][0-9].tif')
+    tempPattern = '*-'
+    for i in range(n_digit_ImgID):
+        tempPattern = tempPattern + '[0-9]'
+    tempPattern = tempPattern + '.tif'
+    tif_list = glob.glob(os.path.join(tempPath, tempPattern))
+
     assert len(tif_list) > 0
+
+    # Infer datasetPrefix from the first file name of the tif file list
+    filename_tif0 = os.path.basename(tif_list[0])
+    n_trailing_chars = -1*(n_digit_ImgID+5)
+    datasetPrefix = filename_tif0[:n_trailing_chars]
+    print(datasetPrefix)
 
     # Use bit rates to precisely control the output file size to be x MB (Mega Bytes)
     # For example, if you want a 30 MB output file for a >9.3 second movie:
@@ -29,29 +39,24 @@ def make_movie(tempPath, fps=24, target_size=30, quality=0):
     outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '-fps-' + str(target_size) + 'MB.mp4'
 
     # # For making mp4 movies
-    # os.system('ffmpeg-422 -r '+str(fps)+' -i '+tempPath+datasetPrefix+'%04d.tif -b:v 24576k\
-    #             -vcodec mpeg4 -q:v '+str(quality)+' -y '+outMovie)
-
-    # os.system('ffmpeg-422 -r '+str(fps)+' -i '+tempPath+datasetPrefix+'%04d.tif -b:v 24576k\
-    #             -c:v libx264 -pix_fmt yuv420p -q:v '+str(quality)+' -y '+outMovie)
-    #
-    os.system('ffmpeg-422 -r '+str(fps)+' -i '+tempPath+datasetPrefix+'-%04d.tif -b:v '+bit_rate+' -pass 1 \
+    tifPattern = os.path.join(tempPath, datasetPrefix+'-%0'+str(n_digit_ImgID)+'d.tif')
+    os.system('ffmpeg -r '+str(fps)+' -i '+tifPattern+' -b:v '+bit_rate+' -pass 1 \
                 -c:v libx264 -pix_fmt yuv420p -q:v '+str(quality)+' -f mp4 -y /dev/null && \
-                ffmpeg-422 -r '+str(fps)+' -i '+tempPath+datasetPrefix+'-%04d.tif -b:v '+bit_rate+' -pass 2 \
+                ffmpeg -r '+str(fps)+' -i '+tifPattern+' -b:v '+bit_rate+' -pass 2 \
                 -c:v libx264 -pix_fmt yuv420p -q:v '+str(quality)+' -f mp4 -y '+outMovie)
 
     return os.path.isfile(outMovie)
 
 if __name__ == "__main__":
-    fps_list = [12, 24]
-    target_size_list = [10, 30] # in MB (Mega Bytes)
-
-    parentFolder = '/Users/wangs20/2-Branching-morphogenesis-paper/supplemental-movies/'
-    movieFolders = glob.glob(parentFolder + 'Movie*/')
-    movieFolders.sort()
-
-    for folder in movieFolders:
-        print(folder)
-        for fps in fps_list:
-            for target_size in target_size_list:
-                make_movie(folder, fps, target_size)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("folder", help="folder containing the image sequence for movie making")
+    parser.add_argument("fps", help="playback speed in frames per second",
+                        type=int, default=12)
+    parser.add_argument("target_size", help="the desired file size in MB",
+                        type=int, default=30)
+    parser.add_argument("quality", nargs='?', help="quality of compression, 0 highest, 63 lowest",
+                        type=int, default=0)
+    parser.add_argument("n_digit_ImgID", nargs='?', help="the digit number of image IDs of the image sequence",
+                        type=int, default=4)
+    args = parser.parse_args()
+    make_movie(args.folder, args.fps, args.target_size, args.quality, args.n_digit_ImgID)
