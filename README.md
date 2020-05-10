@@ -41,7 +41,7 @@ Refer to the table below for a guide of which scripts were used to generate the 
 - Annotated image stacks were exported to tif image sequences and made into H.264 encoded mp4 videos using "make-movie.py", which is a Python wrapper of [ffmpeg](https://www.ffmpeg.org/).
 
   ```
-  usage: make-movie.py [-h] folder fps target_size [n_digit_ImgID] [quality]
+  usage: python make-movie.py [-h] folder fps target_size [n_digit_ImgID] [quality]
 
   positional arguments:
     folder         folder containing the image sequence for movie making
@@ -55,7 +55,7 @@ Refer to the table below for a guide of which scripts were used to generate the 
     -h, --help     show this help message and exit
   ```
 
-  For example, the following command makes the image sequence stored in '\~/branching-paper/movie1' into a '.mp4' movie at 12 fps and with a file size under 15 MB. The movie is saved in the parental folder of the image sequence folder ('\~/branching-paper/'):
-  ```shell
-  make-movie.py ~/branching-paper/movie1 12 15
+  For example, the following command makes the image sequence stored in '\~/branching-paper/movie-1' into a '.mp4' movie at 12 fps and with a file size under 15 MB. The movie is saved in the parental folder of the image sequence folder ('\~/branching-paper/'):
+  ```bash
+  python make-movie.py ~/branching-paper/movie-1 12 15
   ```
