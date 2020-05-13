@@ -1,8 +1,8 @@
-# Instructions of Code Usage
+## Instructions of Code Usage
 This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in Wang et al., 2020 (PubMed ID will be updated after publication). Please kindly cite our paper if you used them in your work.
 
 ---
-## Image analysis and plotting
+### Image analysis and plotting
 
 Refer to the table below for a guide of which scripts were used to generate the plot(s) of interest.
 
@@ -26,9 +26,10 @@ Refer to the table below for a guide of which scripts were used to generate the 
 | Extended Data Fig. 10b, d | get-mean-intensity-b1int-D193-D266-D267.ijm <br> get-background-intensity-b1int-D193-D266-D267.ijm <br> get-mean-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> get-background-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
 | Extended Data Fig. 10g-h | count-cells-attachment-assay.ijm <br> Cell-attachment-assay-analysis.ipynb |
 
-## Making and annotating videos
+---
+### Making and annotating videos
 
-- Image sequences of automated surface rendering and cell tracking were generated in Imaris 9.1.0 (Bitplane). All other image sequences were generated in Fiji.
+- Image sequences of automated surface rendering and cell tracking were generated in Imaris 9.5.0 (Bitplane). All other image sequences were generated in Fiji.
 
   - Tracking of daughter cells from surface-derived cell divisions (Supplementary Video 7) was performed using TrackMate, a Fiji plugin. Images of tracked cells were exported using the Jython script "TrackMate-tracking-export-spot-tif-series.py" running in Fiji. Exported image sequences of individual cell tracks were assembled formatted using ImageJ macro scripts "TrackMate-tracking-save-exported-series-as-stack.ijm" and "TrackMate-tracking-equalize-frames-of-merged-spot-stacks.ijm".
 
