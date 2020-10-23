@@ -8,23 +8,25 @@ Refer to the table below for a guide of which scripts were used to generate the 
 
 | Figures | Scripts used |
 |---|---|
-| Fig. 1D-E | Imaris-tracking-surface-data-plotting.ipynb |
+| Fig. 1E | Imaris-tracking-surface-data-plotting.ipynb |
 | Fig. 1G-J | get-peripheral-line-profile-step1.ijm <br> Dynamic-peripheral-line-scan.ipynb <br> get-peripheral-line-profile-step3.ijm |
 | Fig. 2A-B | TrackMate-tracking-cell-division-data-plotting.ipynb |
 | Fig. 2D | get-E-cadherin-surface-to-center-line-scan.ijm <br> E-cad-line-scan-plotting.ipynb |
-| Fig. 2G | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb |
-| Fig. 3D-F <br> Fig. 4B-C, E | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
-| Fig. S1D-H | Imaris-tracking-surface-data-plotting.ipynb |
-| Fig. S2 | get-peripheral-line-profile-step1.ijm <br> Dynamic-peripheral-line-scan.ipynb <br> get-peripheral-line-profile-step3.ijm |
-| Fig. S3C-E | draw-3d-ROIs-single-time-frame.ijm <br> Compute-3D-mesh.ipynb <br> TrackMate-tracking-cell-division-data-plotting.ipynb |
-| Fig. S4C, F | get-pHH3-surface-interior-mean-intensity.ijm <br> Numerical-modeling-pHH3-Ki67-quantification-plotting.ipynb |
-| Fig. S5B | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb |
-| Fig. S6E, J | get-mean-intensity-Ecad-D193-D266-D267.ijm <br> get-background-intensity-Ecad-D193-D266-D267.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
-| Fig. S7B, D-F | Spheroid-curvature-analysis.ipynb |
-| Fig. S8D | get-Ki67-surface-interior-parameters.ijm <br> Numerical-modeling-pHH3-Ki67-quantification-plotting.ipynb |
-| Fig. S9C | get-mean-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> get-background-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
-| Fig. S10B, D | get-mean-intensity-b1int-D193-D266-D267.ijm <br> get-background-intensity-b1int-D193-D266-D267.ijm <br> get-mean-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> get-background-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
-| Fig. S10G-H | count-cells-attachment-assay.ijm <br> Cell-attachment-assay-analysis.ipynb |
+| Fig. 2F-G | get-E-cadherin-edge-AUC-peakHeight-by-line-scan.ijm <br> Ecad-K14RFP-correlation.ipynb |
+| Fig. 3B-C | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb |
+| Fig. 4A-E | E13epi-scRNA-seq-analysis.ipynb |
+| Fig. 5C, F | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb |
+| Fig. 6D-F <br> Fig. 7B-C, E, G | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb <br> Spheroid-curvature-analysis.ipynb |
+| Fig. S1C | Imaris-tracking-surface-data-plotting.ipynb |
+| Fig. S1D-K | get-peripheral-line-profile-step1.ijm <br> Dynamic-peripheral-line-scan.ipynb <br> get-peripheral-line-profile-step3.ijm |
+| Fig. S2C-E | draw-3d-ROIs-single-time-frame.ijm <br> Compute-3D-mesh.ipynb <br> TrackMate-tracking-cell-division-data-plotting.ipynb |
+| Fig. S3C, F | get-pHH3-surface-interior-mean-intensity.ijm <br> Numerical-modeling-pHH3-Ki67-quantification-plotting.ipynb |
+| Fig. S3G-H | count-buds.ijm <br> Bud-count-decoding-plotting.ipynb |
+| Fig. S4B-D | E13epi-scRNA-seq-analysis.ipynb |
+| Fig. S5D, F | get-mean-intensity-Ecad-D193-D266-D267.ijm <br> get-background-intensity-Ecad-D193-D266-D267.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
+| Fig. S6B, D-F | Spheroid-curvature-analysis.ipynb |
+| Fig. S7D | get-mean-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> get-background-intensity-b1integrin-and-Ecad-D193-D301-D304.ijm <br> Western-blot-and-immunofluorescence-quantification.ipynb |
+| Fig. S7I-J | count-cells-attachment-assay.ijm <br> Cell-attachment-assay-analysis.ipynb |
 
 ---
 ### Making and annotating videos
