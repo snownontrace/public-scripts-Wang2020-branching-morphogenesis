@@ -3,17 +3,17 @@ setFont("Arial", 20, "antiliased");
 
 // DLD-1-spheroids phase contrast and epifluorescence movie
 // 20-font size, top right for 1030 width images
-setForegroundColor(0, 0, 0);
-run("Time Stamper", "starting=0 interval=0.25 x=960 y=27 font=20 decimal=1 anti-aliased or=[h]");
+//setForegroundColor(0, 0, 0);
+//run("Time Stamper", "starting=0 interval=0.25 x=960 y=27 font=20 decimal=1 anti-aliased or=[h]");
 
 //// 191013-DLD-1-spheroids-movie
 //// 20-font size, top right for 925 width images
 //run("Time Stamper", "starting=0 interval=0.166667 x=855 y=27 font=20 decimal=1 anti-aliased or=[h]");
 //
 //// label transgene markers on the top left part next to the inset
-//setForegroundColor(0, 255, 0);
-//setFont("Arial", 20, "antiliased");
-//run("Time Stamper", "starting=0 interval=0 x=358 y=27 font=20 decimal=0 anti-aliased or=[NLS-mNeonGreen (sg-Control)]");
+setForegroundColor(0, 255, 0);
+setFont("Arial", 20, "antiliased");
+run("Time Stamper", "starting=0 interval=0 x=5 y=27 font=20 decimal=0 anti-aliased or=[NLS-mNeonGreen (sg-Control)]");
 //setForegroundColor(255, 0, 255);
 //setFont("Arial", 20, "antiliased");
 //run("Time Stamper", "starting=0 interval=0 x=358 y=52 font=20 decimal=0 anti-aliased or=[NLS-mScarlet (sg2-Cdh1)]");
