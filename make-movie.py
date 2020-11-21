@@ -36,7 +36,10 @@ def make_movie(tempPath, fps, target_size, n_digit_ImgID=4, quality=0):
     bit_rate = str( int(target_size * 8192 / duration) ) + 'k'
 
     # create output file name in a sytematic way
-    outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
+    if tempPath.endswith(os.sep):
+        outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
+    else:
+        outMovie = tempPath + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
 
     # Call 'ffmpeg' to make mp4 movies
     tifPattern = os.path.join(tempPath, datasetPrefix+'%0'+str(n_digit_ImgID)+'d.tif')
