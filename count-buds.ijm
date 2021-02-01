@@ -8,7 +8,7 @@ flist = getFileList(inputFolder);
 
 timeStamp = getTime() % 10000;//last four digits of current time in milliseconds
 f = File.open(parentFolder + inputFolderPrefix + "-" + timeStamp + "-budCount.txt");
-print(f, "file name" + "\t" + "number of buds");
+print(f, "file_name" + "\t" + "bud_number");
 
 run("Clear Results");
 
