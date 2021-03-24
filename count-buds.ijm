@@ -41,6 +41,9 @@ for (i=0; i<flist.length; i++) {
 }
 File.close(f);
 
+// reset default tools
+setTool("rectangle");
+
 function getPath(pathFileOrFolder) {
 	// this one takes full path of the file (input can also be a folder) and returns the parent folder path
 	temp = split(pathFileOrFolder, File.separator);

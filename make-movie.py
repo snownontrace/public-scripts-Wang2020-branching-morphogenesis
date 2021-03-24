@@ -36,10 +36,7 @@ def make_movie(tempPath, fps, target_size, n_digit_ImgID=4, quality=0):
     bit_rate = str( int(target_size * 8192 / duration) ) + 'k'
 
     # create output file name in a sytematic way
-    if tempPath.endswith(os.sep):
-        outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
-    else:
-        outMovie = tempPath + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
+    outMovie = tempPath[:-1] + '-q' + str(quality) + '-' + str(fps) + '_fps-' + str(target_size) + 'MB.mp4'
 
     # Call 'ffmpeg' to make mp4 movies
     tifPattern = os.path.join(tempPath, datasetPrefix+'%0'+str(n_digit_ImgID)+'d.tif')
@@ -64,3 +61,16 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     make_movie(args.folder, args.fps, args.target_size, args.n_digit_ImgID, args.quality)
+
+    # fps_list = [6, 12, 24]
+    # target_size_list = [10, 20] # in MB (Mega Bytes)
+    #
+    # parentFolder = '/Users/wangs20/2-Branching-morphogenesis-paper/supplemental-movies/'
+    # movieFolders = glob.glob(parentFolder + 'Movie1-*/')
+    # movieFolders.sort()
+    #
+    # for folder in movieFolders:
+    #     print(folder)
+    #     for fps in fps_list:
+    #         for target_size in target_size_list:
+    #             make_movie(folder, fps, target_size)
