@@ -27,6 +27,10 @@ print("Used memory at start: " + IJ.freeMemory())
 # Facility functions
 #-------------------
 
+# NOTE the difference of two similar functions!
+# save_snap_shot_seq_simple saves tif series with *** annotated *** spot
+# save_snap_shot_seq saves tif series with *** centered *** spot
+
 def save_snap_shot_seq_simple(imp, xml_filename, input_folder, output_folder,
 							  ZOOM_BY_Z_DEPTH=False, Z1_CLOSE_TO_COVERSLIP=False,
 							  TEST_RUN=False, ANNOTATE_Z=False,
@@ -463,7 +467,7 @@ imp = ImagePlus(tifFile)
 
 #boolList = [False, True]
 #for ZOOM_BY_Z_DEPTH in boolList:
-#	output_folder = input_folder + outputPrefix + '-zZoom_' + str(ZOOM_BY_Z_DEPTH) + '-drawDot_' + str(DRAW_DOT) + '-' + '-drawBox_' + str(DRAW_DOT) + '-' + time_stamp + '/'
+#	output_folder = input_folder + outputPrefix + '-zZoom_' + str(ZOOM_BY_Z_DEPTH) + '-drawDot_' + str(DRAW_DOT) + '-drawBox_' + str(DRAW_BOX) + '-' + time_stamp + '/'
 #	if not os.path.exists(output_folder):
 #		os.makedirs(output_folder)
 #
@@ -479,17 +483,29 @@ imp = ImagePlus(tifFile)
 # For running just one configuration
 #-----------------------------------
 
-output_folder = input_folder + outputPrefix + '-zZoom_' + str(ZOOM_BY_Z_DEPTH) + '-drawDot_' + str(DRAW_DOT) + '-' + '-drawBox_' + str(DRAW_DOT) + '-' + time_stamp + '/'
+# NOTE the difference of two similar functions!
+# save_snap_shot_seq_simple saves tif series with *** annotated *** spot
+# save_snap_shot_seq saves tif series with *** centered *** spot
+
+output_folder = input_folder + outputPrefix + '-zZoom_' + str(ZOOM_BY_Z_DEPTH) + '-drawDot_' + str(DRAW_DOT) + '-' + time_stamp + '/'
 if not os.path.exists(output_folder):
 	os.makedirs(output_folder)
 
-# Specify the track IDs to save
-trackIDs = [68, 69, 110, 121]
-save_snap_shot_seq_simple(imp, xml_filename, input_folder, output_folder,
-						  ZOOM_BY_Z_DEPTH=False, Z1_CLOSE_TO_COVERSLIP=False,
-						  TEST_RUN=False, ANNOTATE_Z=True,
-						  DRAW_DOT=True, DRAW_BOX=True, L_RECT=100,
-						  trackIDs=trackIDs, z_number_to_project=1)
+# save_snap_shot_seq saves tif series with *** centered *** spot
+save_snap_shot_seq(imp, xml_filename, input_folder, output_folder,
+					ZOOM_BY_Z_DEPTH=False, Z1_CLOSE_TO_COVERSLIP=False,
+#					TEST_RUN=False,
+					TEST_RUN=True,
+					DRAW_DOT=True, z_number_to_project=1, L=100)
+
+## save_snap_shot_seq_simple saves tif series with *** annotated *** spot
+#trackIDs = [68, 69, 110, 121] # Specify the track IDs to save; use None for all tracks
+#save_snap_shot_seq_simple(imp, xml_filename, input_folder, output_folder,
+#						  ZOOM_BY_Z_DEPTH=False, Z1_CLOSE_TO_COVERSLIP=False,
+##						  TEST_RUN=False,
+#						  TEST_RUN=True,
+#						  ANNOTATE_Z=True, DRAW_DOT=True, DRAW_BOX=True, L_RECT=100,
+#						  trackIDs=trackIDs, z_number_to_project=1)
 
 # Clean up workspace after running
 imp.close()
