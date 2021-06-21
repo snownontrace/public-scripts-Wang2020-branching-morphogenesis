@@ -254,7 +254,7 @@ def save_snap_shot_seq(imp, xml_filename, input_folder, output_folder, ZOOM_BY_Z
 						
 	#					model.getLogger().log("current c, z, f: " + str(current_c) + ", " + str(current_z) + ", " + str(f))
 						# Take a L x L snapshot centered at (x,y) at channel c, slice z and frame f.
-						impTemp = stacks.snapshot( imp, current_c, current_z, f, x, y, L )
+						impTemp = snapshot( imp, current_c, current_z, f, x, y, L )
 	
 						if DRAW_DOT == True:
 							# Draw a dot at the center of image
