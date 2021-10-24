@@ -1,5 +1,5 @@
 ## Instructions of Code Usage
-This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in Wang et al., 2020 (PubMed ID will be updated after publication). Please kindly cite our paper if you used them in your work.
+This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in [Wang et al., 2021](https://pubmed.ncbi.nlm.nih.gov/34133940/). Please kindly cite our paper if you used them in your work.
 
 ---
 ### Image analysis and plotting
