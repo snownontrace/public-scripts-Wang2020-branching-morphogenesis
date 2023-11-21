@@ -1,8 +1,15 @@
-## Instructions of Code Usage
-This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in [Wang et al., 2021](https://pubmed.ncbi.nlm.nih.gov/34133940/). Please kindly cite our paper if you used them in your work.
+
+# Instructions of Code Usage
+
+This is a collection of customized scripts (Jupyter notebook, R, ImageJ macro and Jython) used for image analysis, plotting and movie making in [Wang et al., 2021](https://pubmed.ncbi.nlm.nih.gov/34133940/).
+
+The source data for using these scripts can be downloaded [here](https://doi.org/10.35092/yhjc.12145626). The scripts and data should be placed in the same directory so that the relative path in the scripts can be direclty used.
+
+Please kindly cite our paper if you used them in your work.
 
 ---
-### Image analysis and plotting
+
+## Image analysis and plotting
 
 Refer to the table below for a guide of which scripts were used to generate the plot(s) of interest.
 
@@ -49,21 +56,20 @@ Refer to the table below for a guide of which scripts were used to generate the 
 | Fig. S7N | DLD-1-AFM-plotting.ipynb |
 
 ---
-### Making and annotating videos
+
+## Making and annotating videos
 
 - Image sequences of automated surface rendering and cell tracking were generated in Imaris 9.5.0 (Bitplane). All other image sequences were generated in Fiji.
 
   - Tracking of daughter cells from surface-derived cell divisions (Movie S7) was performed using TrackMate, a Fiji plugin. Images of tracked cells were exported using the Jython script "TrackMate-tracking-export-spot-tif-series.py" running in Fiji. Exported image sequences of individual cell tracks were assembled and formatted using ImageJ macro scripts "TrackMate-tracking-save-exported-series-as-stack.ijm" and "TrackMate-tracking-equalize-frames-of-merged-spot-stacks.ijm".
 
-
 - Image stacks were annotated using "movie-annotation-add-time-stamp.ijm", "movie-annotation-add-scale-bar.ijm" and "movie-annotation-add-arrows-time-lapse-frames.ijm" before or after being combined or concatenated into a single image stack for a single video.
 
   - Note, make sure the image width and height pixel sizes are even numbers, otherwise ffmpeg may complain.
 
-
 - Annotated image stacks were exported to tif image sequences and made into H.264 encoded mp4 videos using "make-movie.py", which is a Python wrapper of [ffmpeg](https://www.ffmpeg.org/).
 
-  ```
+  ```bash
   usage: python make-movie.py [-h] folder fps target_size [n_digit_ImgID] [quality]
 
   positional arguments:
@@ -79,6 +85,7 @@ Refer to the table below for a guide of which scripts were used to generate the 
   ```
 
   For example, the following command makes the image sequence stored in '\~/branching-paper/movie-1' into a '.mp4' movie at 12 fps and with a file size under 15 MB. The movie is saved in the parental folder of the image sequence folder ('\~/branching-paper/'):
+
   ```bash
   python make-movie.py ~/branching-paper/movie-1 12 15
   ```
